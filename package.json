@@ -1,0 +1,19 @@
+{
+  "name": "mexc-btc-v001",
+  "version": "1.0.0",
+  "description": "nada.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ccxt": "^4.2.9",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {}
+}
