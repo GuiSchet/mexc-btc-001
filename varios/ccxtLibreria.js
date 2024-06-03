@@ -14,19 +14,16 @@ const exchange = new exchangeClass ({
         'enableRateLimit': true,
 });
 
-const cancelOrders = async () => {
+const cancelOrders = async (mercados) => {
     console.log('Cancelando ordenes:');
-    try{     
-        const orders = await exchange.fetchOpenOrders();
-        //console.log(orders);
-        for (const order in orders) {
-            //console.log(orders[order]['id'])
-            await exchange.cancelOrder(orders[order]['id'], orders[order]['symbol'])
-            console.log('Orden correctamente cancelada: ', orders[order]['symbol'])
+    for (const simbolosMercados in mercados) {
+        try {
+            const mercados = await exchange.cancelAllOrders (simbolosMercados);
         }
-    } catch {
-        console.log('Error cargando ordenes para cancelar.')
-    }
+        catch(error) {
+            console.log(simbolosMercados, '  ', error)
+        }
+    };
 };
 
 const sellPosition = async (mercado, cantHoldeada, precisionAmount, precisionPrice) => {

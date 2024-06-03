@@ -13,7 +13,7 @@ const main = async () => {
         guardarAllMarkets(await exchange.loadMarkets ());
         let markets = allMarkets();
         markets = filtroBaseBTC(markets);
-        await cancelOrders();
+        await cancelOrders(markets);
         await seller(markets);
         await buyer(markets);
         await sleep(900000)
@@ -23,9 +23,9 @@ const main = async () => {
 main();
 
 const mainPruebas = async () => {
-    const mercados = await exchange.loadMarkets();
-    const mercadosFiltro = filtroBaseBTC(mercados);
-    console.log(Object.keys(mercadosFiltro));
+    guardarAllMarkets(await exchange.loadMarkets ());
+    let markets = allMarkets();
+    markets = filtroBaseBTC(markets);
 };
 
 //mainPruebas();
